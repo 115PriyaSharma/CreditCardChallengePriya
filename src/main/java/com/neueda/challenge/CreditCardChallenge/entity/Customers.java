@@ -3,54 +3,52 @@ package com.neueda.challenge.CreditCardChallenge.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
-
 @Document
-public class Customer {
+public class Customers {
     @Id
-    private long customerId;
+    private long customer_id;
 
-    private String firstName;
-    private String lastName;
+    private String first;
+    private String last;
 
     private String gender;
     private String job;
-    private Date dob;
+    private String dob;
 
-    public Customer() {
+    public Customers() {
         //empty one
     }
 
-    public Customer(long customerId, String firstName, String lastName, String gender, String job, Date dob) {
-        this.customerId = customerId;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Customers(long customerId, String firstName, String lastName, String gender, String job, String dob) {
+        this.customer_id = customerId;
+        this.first = firstName;
+        this.last = lastName;
         this.gender = gender;
         this.job = job;
         this.dob = dob;
     }
     public long getCustomerId() {
-        return customerId;
+        return customer_id;
     }
 
     public void setCustomerId(long customerId) {
-        this.customerId = customerId;
+        this.customer_id = customerId;
     }
 
     public String getFirstName() {
-        return firstName;
+        return first;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.first = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return last;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.last = lastName;
     }
 
     public String getGender() {
@@ -69,14 +67,11 @@ public class Customer {
         this.job = job;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
-
-
-
 }
