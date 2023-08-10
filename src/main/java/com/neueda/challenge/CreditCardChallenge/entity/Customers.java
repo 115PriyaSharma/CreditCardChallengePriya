@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Customers {
     @Id
+    private String id;
     private long customer_id;
 
     private String first;
@@ -73,5 +74,13 @@ public class Customers {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
