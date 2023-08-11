@@ -25,7 +25,7 @@ public class CreditCardChallengeApplication {
 	public void init() {
 		logger.info("CUSTOMERS DATA ADDED");
 		repository.save(new Customers(307,"James","Bond","Male", "CITI SLAVES", "24/02/2002"));
-		repository.save(new Customers(1,"Steve","Jobs","Male", "Apple SLAVES", "04/01/2001"));
+		repository.save(new Customers(23,"Steve","Jobs","Male", "Apple SLAVES", "04/01/2001"));
 		repository.save(new Customers(2,"Elon","Musk","Female", "Queen", "09/08/2003"));
 		repository.save(new Customers(3,"Baby","Doll","Female", "Queen", "11/12/2000"));
 		repository.save(new Customers(4,"Naina","Darling","Female", "King", "07/02/2003"));

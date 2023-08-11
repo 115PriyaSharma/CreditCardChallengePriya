@@ -79,17 +79,17 @@ public class CustomerRestController {
             throw new RuntimeException(e);
         }
     }
-    @GetMapping("/resp/{customerId}")
-    public ResponseEntity<Object> getCustomerByIdResponse(@PathVariable long customerId)
-    {
-        try {
-            Customers customers = this.customerService.getCustomerById(customerId);
-            return ResponseEntity.status(HttpStatus.FOUND).body(customers);
-        } catch (RecordNotFoundException e) {
-           // throw new RuntimeException(e);
-            return ResponseEntity.noContent().build();
-        }
-    }
+//    @GetMapping("/resp/{customerId}")
+//    public ResponseEntity<Object> getCustomerByIdResponse(@PathVariable long customerId)
+//    {
+//        try {
+//            Customers customers = this.customerService.getCustomerById(customerId);
+//            return ResponseEntity.status(HttpStatus.FOUND).body(customers);
+//        } catch (RecordNotFoundException e) {
+//           // throw new RuntimeException(e);
+//            return ResponseEntity.noContent().build();
+//        }
+//    }
     //@RequestMapping("/employees/post")
    // @RequestMapping(path = "/employees/post", method = RequestMethod.POST)
     //@PostMapping("/employees/post")

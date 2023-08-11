@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface CustomerRepository extends MongoRepository<Customers,String> {
 //    List<CustomObjectInputStream> findEmployee
-    Customers insertEmployee(Customers customers);
-    List<Customers> getAllCustomers();
-    Customers getCustomerById(long cusid);
+//    Customers insertEmployee(Customers customers);
+//    List<Customers> getAllCustomers();
+//    Customers getCustomerById(long cusid);
+    List<Customers> findAllByCustomerId(long customerId);
 }

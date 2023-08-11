@@ -14,24 +14,27 @@ public class CustomerService {
     @Autowired
     private CustomerRepository repository;
 
-    public Customers insertEmployee(Customers customers) throws RecordExistsException {
-        if(repository.existsById(customers.getCustomerId()))
-            throw new RecordExistsException("Customer with "+ customers.getCustomerId()+"already exists");
-        long count = this.repository.count();
-        customers.setCustomerId(count+1);
-        Customers savedEmployee = repository.save(customers);
-        System.out.printf("There are now %d employees\n", repository.count());
-        return  savedEmployee;
-    }
+//    public Customers insertEmployee(Customers customers) throws RecordExistsException {
+//        if(repository.existsById(customers.getCustomerId()))
+//            throw new RecordExistsException("Customer with "+ customers.getCustomerId()+"already exists");
+//        long count = this.repository.count();
+//        customers.setCustomerId(count+1);
+//        Customers savedEmployee = repository.save(customers);
+//        System.out.printf("There are now %d employees\n", repository.count());
+//        return  savedEmployee;
+//    }
     // Get all employees.
     public List<Customers> getAllCustomers()
     {
         return this.repository.findAll();
     }
     public Customers getCustomerById(long cusid) throws RecordNotFoundException {
-        return repository.findById(cusid)
-                .orElseThrow(()->new RecordNotFoundException("employee with "+cusid+" does not exist"));
+            return (Customers) repository.findAllByCustomerId(cusid);
+
+//        return repository.findById(cusid)
+//                .orElseThrow(()->new RecordNotFoundException("employee with "+cusid+" does not exist"));
     }
+
     // Get all employees by region.
 //    public List<Customer> getAllCustomerByRegion(String region) {
 //        return this.repository.findCustomerByRegion(region);
