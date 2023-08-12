@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Customers {
     @Id
     private String _id;
-    @Field("customerId")
+    @Field("customer_id")
     private long customerId;
 
     private String first;

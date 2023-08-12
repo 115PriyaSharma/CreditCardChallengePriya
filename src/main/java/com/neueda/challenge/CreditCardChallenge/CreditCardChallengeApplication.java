@@ -26,7 +26,7 @@ public class CreditCardChallengeApplication {
 		SpringApplication.run(CreditCardChallengeApplication.class, args);
 		System.out.println("hello!!!");
 
-		System.out.println(s.getCustomerByCustomerId(123));
+//		System.out.println(s.getCustomerByCustomerId(123));
 	}
 
 
