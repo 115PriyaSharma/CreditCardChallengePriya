@@ -2,12 +2,14 @@ package com.neueda.challenge.CreditCardChallenge.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "Customers")
 public class Customers {
     @Id
     private String _id;
-    private long customer_id;
+    @Field("customerId")
+    private long customerId;
 
     private String first;
     private String last;
@@ -22,7 +24,7 @@ public class Customers {
 
     public Customers(long customerId, String firstName, String lastName, String gender, String job, String dob) {
 //        this._id = _id;
-        this.customer_id = customerId;
+        this.customerId = customerId;
         this.first = firstName;
         this.last = lastName;
         this.gender = gender;
@@ -30,11 +32,11 @@ public class Customers {
         this.dob = dob;
     }
     public long getCustomerId() {
-        return customer_id;
+        return customerId;
     }
 
     public void setCustomerId(long customerId) {
-        this.customer_id = customerId;
+        this.customerId = customerId;
     }
 
     public String getFirstName() {

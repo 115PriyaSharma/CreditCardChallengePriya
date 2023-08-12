@@ -54,14 +54,10 @@ public class CustomerRestController {
      * Just use annotations for respective HTTP methods and no need to put verbs within them
      * @return
      */
-    @GetMapping
-    public List<Customers> getAllCustomers(@RequestParam(required = false) String first)
+    @GetMapping("/get")
+    public List<Customers> getAllCustomers()
     {
-        if(first == null)
-            return customerService.getAllCustomers();
-
         return customerService.getAllCustomers();
-//        return customerService.getAllEmployeesByRegion(region);
     }
 
     /**
@@ -71,76 +67,9 @@ public class CustomerRestController {
      * @return
      */
     @GetMapping("/{customerId}")
-    public Customers getCustomerById(@PathVariable long customerId)
+    public List<Customers> getCustomerById(@PathVariable long customerId)
     {
-        try {
-            return this.customerService.getCustomerById(customerId);
-        } catch (RecordNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        return this.customerService.getCustomerByCustomerId(customerId);
     }
-//    @GetMapping("/resp/{customerId}")
-//    public ResponseEntity<Object> getCustomerByIdResponse(@PathVariable long customerId)
-//    {
-//        try {
-//            Customers customers = this.customerService.getCustomerById(customerId);
-//            return ResponseEntity.status(HttpStatus.FOUND).body(customers);
-//        } catch (RecordNotFoundException e) {
-//           // throw new RuntimeException(e);
-//            return ResponseEntity.noContent().build();
-//        }
-//    }
-    //@RequestMapping("/employees/post")
-   // @RequestMapping(path = "/employees/post", method = RequestMethod.POST)
-    //@PostMapping("/employees/post")
-//    @PostMapping
-//    public ResponseEntity<Object> addEmployee(@RequestBody Employee employee)
-//    {
-//        try {
-//            Employee employee1 = this.employeeService.insertEmployee(employee);
-//            return ResponseEntity.status(HttpStatus.CREATED).body(employee1);
-//        } catch (RecordExistsException e) {
-//            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(e.getMessage());
-//        }
-//    }
-//    @PutMapping
-//    public ResponseEntity<Object> updateEmployee(@RequestBody Employee employee)
-//    {
-//        Map<StatusMessages , String> map = new HashMap<>();
-//        try {
-//            this.employeeService.updateEmployee(employee);
-//            map.put(StatusMessages.SUCCESS, "Employee updated successfully");
-//            return ResponseEntity.status(HttpStatus.ACCEPTED).body(map);
-//        } catch (RecordNotFoundException e) {
-//            map.put(StatusMessages.FAILURE, e.getMessage());
-//            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(map);
-//        }
-//    }
-//    @DeleteMapping("/{employeeId}")
-//    public ResponseEntity<Object> deleteEmployeeById(@PathVariable long employeeId)
-//    {
-//        Map<StatusMessages , String> map = new HashMap<>();
-//        try {
-//            map.put(StatusMessages.SUCCESS, "Employee deleted successfully");
-//            this.employeeService.deleteEmployee(employeeId);
-//            return ResponseEntity.status(HttpStatus.ACCEPTED).body(map);
-//        } catch (RecordNotFoundException e) {
-//            map.put(StatusMessages.FAILURE, e.getMessage());
-//            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(map);
-//        }
-//    }
-//    @GetMapping("/pages")
-//    public EmployeePerPageResponse getEmployeesByPage(@RequestParam(required = false, defaultValue = "0") int pageno,
-//                                                      @RequestParam(required = false, defaultValue = "5") int size)
-//    {
-//        return this.employeeService.getEmployeesByPagination(pageno, size);
-//    }
-//
-//    @GetMapping("/from/{from}/to/{to}")
-//    public List<Employee> getAllEmployeesInSalaryRange(
-//            @PathVariable double from, @PathVariable double to) {
-//
-//        return employeeService.getAllEmployeessalaryRangen(from, to);
-//    }
 
 }

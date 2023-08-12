@@ -2,9 +2,12 @@ package com.neueda.challenge.CreditCardChallenge;
 
 import com.neueda.challenge.CreditCardChallenge.dao.CustomerRepository;
 import com.neueda.challenge.CreditCardChallenge.entity.Customers;
+import com.neueda.challenge.CreditCardChallenge.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import java.util.logging.Logger;
@@ -13,13 +16,20 @@ import java.util.logging.Logger;
 public class CreditCardChallengeApplication {
 
 	Logger logger = Logger.getLogger(CreditCardChallengeApplication.class.getSimpleName());
-	public static void main(String[] args) {
-		SpringApplication.run(CreditCardChallengeApplication.class, args);
-		System.out.println("hello!!!");
-	}
-
 	@Autowired
 	private CustomerRepository repository;
+
+	@Autowired
+	private static CustomerService s;
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context =
+		SpringApplication.run(CreditCardChallengeApplication.class, args);
+		System.out.println("hello!!!");
+
+		System.out.println(s.getCustomerByCustomerId(123));
+	}
+
+
 
 	@Bean
 	public void init() {
