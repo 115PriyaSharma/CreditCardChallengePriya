@@ -24,7 +24,7 @@ public class CreditCardChallengeApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context =
 		SpringApplication.run(CreditCardChallengeApplication.class, args);
-		System.out.println("hello!!!");
+		System.out.println("hello Vedika!!!");
 
 //		System.out.println(s.getCustomerByCustomerId(123));
 	}
